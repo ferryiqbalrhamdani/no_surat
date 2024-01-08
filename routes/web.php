@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Auth\Login;
+use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', Dashboard::class);
+
+Route::get('/login', Login::class);
