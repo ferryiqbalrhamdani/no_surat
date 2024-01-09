@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\DataMaster;
 
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Dashboard extends Component
+class Users extends Component
 {
-    #[Title('Dashboard')]
+    #[Title('Daftar User')]
     #[Layout('layouts.app')]
     public function render()
     {
-        return view('livewire.dashboard');
+        return view('livewire.data-master.users');
     }
 }

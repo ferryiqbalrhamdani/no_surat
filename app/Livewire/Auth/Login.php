@@ -29,7 +29,7 @@ class Login extends Component
 
         if (Auth::attempt($credentials)) {
             if (Auth::user()->active == 1) {
-                return dd("berhasil login");
+                return redirect('/');
             } else {
                 return dd("akun dibekukan");
             }

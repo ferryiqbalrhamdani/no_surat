@@ -2,6 +2,7 @@
 
 use App\Livewire\Auth\Login;
 use App\Livewire\Dashboard;
+use App\Livewire\DataMaster\Users;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Dashboard::class);
 
-Route::get('/login', Login::class);
+Route::get('/login', Login::class)->name('login');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', Dashboard::class);
+    Route::get('/users', Users::class);
+});
