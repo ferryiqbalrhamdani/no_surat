@@ -8,6 +8,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Login extends Component
 {
@@ -29,6 +30,7 @@ class Login extends Component
 
         if (Auth::attempt($credentials)) {
             if (Auth::user()->active == 1) {
+                Alert::toast('Hallo ' . Auth::user()->name, 'success');
                 return redirect('/');
             } else {
                 return dd("akun dibekukan");

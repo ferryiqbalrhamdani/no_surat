@@ -1,7 +1,9 @@
 <?php
 
 use App\Livewire\Auth\Login;
+use App\Livewire\Auth\Logout;
 use App\Livewire\Dashboard;
+use App\Livewire\DataMaster\DaftarPt;
 use App\Livewire\DataMaster\Users;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', Login::class)->name('login');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', [Logout::class, 'logout']);
+
     Route::get('/', Dashboard::class);
     Route::get('/users', Users::class);
+    Route::get('/daftar-pt', DaftarPt::class);
 });

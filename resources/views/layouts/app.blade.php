@@ -69,7 +69,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -107,7 +107,8 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-solid fa-users"></i></div>
                             Users
                         </a>
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link @if(request()->route()->uri == 'daftar-pt') active @endif"
+                            onclick="functionDaftarPT()" style="cursor: pointer">
                             <div class="sb-nav-link-icon"><i class="fas fa-solid fa-industry"></i></div>
                             Daftar PT
                         </a>
@@ -137,6 +138,9 @@
             </footer>
         </div>
     </div>
+    @include('sweetalert::alert')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="{{asset('vendor/sb-admin-2/js/scripts.js')}}"></script>
@@ -156,6 +160,14 @@
         function functionUsers() {
           location.href = "/users";
         }
+        function functionDaftarPT() {
+          location.href = "/daftar-pt";
+        }
+    </script>
+    <script>
+        $(document).ready(function(){
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    });
     </script>
 </body>
 
