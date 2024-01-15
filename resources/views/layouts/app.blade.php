@@ -8,6 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>{{ $title ?? 'No Surat App' }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="{{asset('vendor/sb-admin-2/css/styles.css')}}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -86,20 +87,11 @@
                             Dashboard
                         </a>
                         <div class="sb-sidenav-menu-heading">Data Input</div>
-                        <a onclick="myFunction()" style="cursor: pointer" class="nav-link collapsed"
-                            data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false"
-                            aria-controls="collapseLayouts">
+                        <a class="nav-link @if(request()->route()->uri == 'no-surat') active @endif"
+                            onclick="myFunction()" style="cursor: pointer">
                             <div class="sb-nav-link-icon"><i class="fas fa-solid fa-envelope-open-text"></i></div>
                             No Surat
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                            data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                            </nav>
-                        </div>
 
                         <div class="sb-sidenav-menu-heading">Data Master</div>
                         <a class="nav-link @if(request()->route()->uri == 'users') active @endif"
@@ -169,6 +161,7 @@
         $('[data-bs-toggle="tooltip"]').tooltip();
     });
     </script>
+    @stack('daftar-pt')
 </body>
 
 </html>

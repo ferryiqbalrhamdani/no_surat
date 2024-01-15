@@ -43,11 +43,36 @@
                                 </div>
                             </div>
                         </div>
+                        @if ($mySelected!=NULL)
+                        <div class="mb-3">
+                            <button wire:click='bulkDelete' class="btn btn-outline-danger"><i
+                                    class="fas fa-regular fa-trash-can"></i>
+                                Hapus</button>
+                        </div>
+                        @endif
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover shadow-sm" style="white-space: nowrap">
+                                @if ($mySelected!=NULL)
+                                <thead>
+                                    <tr>
+                                        <td colspan="5">
+                                            <span>{{count($mySelected)}} record selected</span>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                @endif
                                 <thead class="table-dark">
                                     <tr>
-                                        <th scope="col">
+                                        <th scope="col" class="text-center">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault" wire:model.live='selectAll'>
+                                            <input type="text" hidden wire:model.live='firstId' value="
+                                                            @if($dataPT->count() > 0) 
+                                                                {{$dataPT[0]->id}} 
+                                                            @endif
+                                                        ">
+                                        </th>
+                                        <th>
                                             Nama
                                             <span wire:click="sortBy('name')" style="cursor: pointer; font-size: 10px">
                                                 <i
@@ -87,7 +112,11 @@
 
                                     @foreach ($dataPT as $dp)
                                     <tr class="">
-                                        <td scope="row">
+                                        <td scope="row" class="text-center">
+                                            <input class="form-check-input" type="checkbox" value="{{$dp->id}}"
+                                                wire:model.live='mySelected'>
+                                        </td>
+                                        <td>
                                             {{$dp->name}}
                                         </td>
                                         <td>
