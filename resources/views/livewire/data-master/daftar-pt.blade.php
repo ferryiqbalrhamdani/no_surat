@@ -1,4 +1,4 @@
-<div class="container-fluid px-4">
+<div>
     @include('livewire.modal.data-master.daftar-pt-modal')
     <h1 class="mt-4">Daftar PT</h1>
     <ol class="breadcrumb mb-4">
@@ -11,7 +11,7 @@
                 Data</button>
         </div>
     </div>
-    {{-- table --}}
+
     <div class="row">
         <div class="col">
             <div class="table-responsive">
@@ -50,13 +50,14 @@
                                 Hapus</button>
                         </div>
                         @endif
+                        {{-- table --}}
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover shadow-sm" style="white-space: nowrap">
                                 @if ($mySelected!=NULL)
                                 <thead>
                                     <tr>
                                         <td colspan="5">
-                                            <span>{{count($mySelected)}} record selected</span>
+                                            <span>{{count($mySelected)}} data dipilih</span>
                                         </td>
                                     </tr>
                                 </thead>
@@ -144,6 +145,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        {{-- akhir table --}}
                         <div class="row">
                             <div class="col-12 col-lg-8">
                                 <span>Halaman : {{ $dataPT->currentPage() }} </span><br />
@@ -162,5 +164,4 @@
             </div>
         </div>
     </div>
-    {{-- akhir table --}}
 </div>

@@ -103,7 +103,7 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <p>Apakah anda yakin ingin menhapus data <b>{{$name}}</b>?</p>
+                    <p class="text-center">Apakah anda yakin ingin menhapus data <b>{{$name}}</b>?</p>
                 </div>
             </div>
             <div class="modal-footer d-flex">
@@ -195,6 +195,8 @@
 
     $(".page-item").on('click', function(event) {
         Livewire.dispatch('resetMySelected');
-    })
+    });
+
+    
 </script>
 @endpush

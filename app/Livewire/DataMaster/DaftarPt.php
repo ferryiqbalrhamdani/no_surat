@@ -157,10 +157,8 @@ class DaftarPt extends Component
     {
         if ($this->selectAll == true) {
             $this->mySelected = ModelPT::whereBetween('id', [$this->firstId, $this->lastId])->pluck('id');
-            // dd($this->mySelected);
         } else {
             $this->mySelected = [];
-            // dd('tidak ok');
         }
     }
 

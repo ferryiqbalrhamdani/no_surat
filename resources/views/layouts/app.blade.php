@@ -94,7 +94,7 @@
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Data Master</div>
-                        <a class="nav-link @if(request()->route()->uri == 'users') active @endif"
+                        <a class="nav-link @if(request()->route()->uri == 'users' || request()->route()->uri == 'users/create') active @endif"
                             onclick="functionUsers()" style="cursor: pointer">
                             <div class="sb-nav-link-icon"><i class="fas fa-solid fa-users"></i></div>
                             Users
@@ -114,7 +114,9 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                {{$slot}}
+                <div class="container-fluid px-4">
+                    {{$slot}}
+                </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -144,7 +146,7 @@
     <script src="{{asset('vendor/sb-admin-2/js/datatables-simple-demo.js')}}"></script>
     <script>
         function myFunction() {
-          location.href = "/list-no-surat";
+          location.href = "/no-surat";
         }
         function functionDashboard() {
           location.href = "/";
@@ -162,6 +164,7 @@
     });
     </script>
     @stack('daftar-pt')
+    @stack('users')
 </body>
 
 </html>
